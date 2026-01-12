@@ -22,10 +22,10 @@ const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     nav.style.padding = '0.5rem 0';
-    nav.style.background = 'rgba(15, 23, 42, 0.9)';
+    nav.style.background = 'rgba(255, 255, 255, 0.9)';
   } else {
     nav.style.padding = '1rem 0';
-    nav.style.background = 'rgba(30, 41, 59, 0.7)';
+    nav.style.background = 'rgba(255, 255, 255, 0.7)';
   }
 });
 
