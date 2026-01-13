@@ -907,12 +907,44 @@ footer {
   .card-client {
     flex-direction: column;
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
+    /* Reduced padding */
+    gap: 2rem;
+    /* Reduced gap */
+    width: 90%;
+    /* Prevent hitting screen edges */
   }
 
   .card-left {
     flex-direction: column;
     text-align: center;
+    gap: 1.5rem;
+  }
+
+  .user-picture {
+    width: 6rem;
+    /* Smaller image */
+    height: 6rem;
+    font-size: 2rem;
+  }
+
+  .name-client {
+    font-size: 1.75rem;
+    /* Smaller text */
+    margin-top: 1.5rem;
+    /* Reduced margin */
+  }
+
+  .social-media {
+    gap: 1rem;
+    flex-wrap: wrap;
+    /* Allow wrapping if needed */
+  }
+
+  .social-media a {
+    padding: 0.8rem 1.5rem;
+    /* Compact buttons */
+    font-size: 1rem;
   }
 }
 
