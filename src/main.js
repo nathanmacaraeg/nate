@@ -18,16 +18,43 @@ window.addEventListener('scroll', reveal);
 window.addEventListener('load', reveal);
 
 // Navbar dynamic padding
+// Navbar dynamic padding
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
-    nav.style.padding = '0.5rem 0';
-    nav.style.background = 'rgba(255, 255, 255, 0.9)';
+    nav.classList.add('scrolled');
   } else {
-    nav.style.padding = '1rem 0';
-    nav.style.background = 'rgba(255, 255, 255, 0.7)';
+    nav.classList.remove('scrolled');
   }
 });
+
+// Theme Switch Logic
+const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  if (currentTheme === 'dark') {
+    toggleSwitch.checked = true;
+  }
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // Default to system preference if no local storage
+  document.documentElement.setAttribute('data-theme', 'dark');
+  toggleSwitch.checked = true;
+}
+
+function switchTheme(e) {
+  if (e.target.checked) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+toggleSwitch.addEventListener('change', switchTheme);
 
 // smooth scroll enhancement (already in CSS, but for older browsers or complex layouts)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
