@@ -215,10 +215,21 @@ nav.scrolled {
   font-family: 'Outfit', sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
-  background: var(--gradient-1);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: var(--bg);
+  /* Match profile icon color */
+  color: var(--text-main);
+  width: 3.5rem;
+  /* Fixed width for circle */
+  height: 3.5rem;
+  /* Fixed height for circle */
+  display: inline-flex;
+  /* Fix centering in footer */
+  justify-content: center;
+  align-items: center;
+  border: var(--border-width) solid var(--glass-border);
+  border-radius: 999px;
+  /* Circle shape */
+  box-shadow: 4px 4px 0 var(--shadow);
 }
 
 .nav-links {
@@ -544,8 +555,8 @@ footer {
 }
 
 .footer-logo {
-  font-size: 2rem;
   margin-bottom: 2rem;
+  /* Inherits font-size 1.5rem from .logo for consistency */
 }
 
 .social-links {
@@ -640,7 +651,8 @@ footer {
 .timeline-content,
 .project-card,
 .feature-card,
-.skill-category {
+.skill-category,
+.logo {
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -653,7 +665,9 @@ footer {
 .feature-card::before,
 .feature-card::after,
 .skill-category::before,
-.skill-category::after {
+.skill-category::after,
+.logo::before,
+.logo::after {
   content: "";
   position: absolute;
   top: 0;
@@ -673,28 +687,33 @@ footer {
 :root[data-theme="dark"] .feature-card::before,
 :root[data-theme="dark"] .feature-card::after,
 :root[data-theme="dark"] .skill-category::before,
-:root[data-theme="dark"] .skill-category::after {
+:root[data-theme="dark"] .skill-category::after,
+:root[data-theme="dark"] .logo::before,
+:root[data-theme="dark"] .logo::after {
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .timeline-content::before,
 .project-card::before,
 .feature-card::before,
-.skill-category::before {
+.skill-category::before,
+.logo::before {
   left: -100%;
 }
 
 .timeline-content::after,
 .project-card::after,
 .feature-card::after,
-.skill-category::after {
+.skill-category::after,
+.logo::after {
   left: 100%;
 }
 
 .timeline-content:hover,
 .project-card:hover,
 .feature-card:hover,
-.skill-category:hover {
+.skill-category:hover,
+.logo:hover {
   transform: translate(-6px, -6px);
   box-shadow: 10px 10px 0 var(--shadow), 15px 15px 20px rgba(0, 0, 0, 0.1);
   border-color: var(--primary);
@@ -704,13 +723,206 @@ footer {
 .timeline-content:hover::before,
 .project-card:hover::before,
 .feature-card:hover::before,
-.skill-category:hover::before {
+.skill-category:hover::before,
+.logo:hover::before {
   animation: swipeRight 1.5s infinite;
 }
 
 .timeline-content:hover::after,
 .project-card:hover::after,
 .feature-card:hover::after,
-.skill-category:hover::after {
+.skill-category:hover::after,
+.logo:hover::after {
+  animation: swipeLeft 1.5s infinite;
+}
+
+/* Profile Card (Hero) */
+.card-client {
+  background: var(--surface);
+  width: 100%;
+  max-width: 90rem;
+  /* Even larger max-width */
+  padding: 5rem;
+  /* More padding */
+  border: var(--border-width) solid var(--glass-border);
+  box-shadow: 4px 4px 0 var(--shadow);
+  border-radius: 30px;
+  text-align: left;
+  /* Name/Description on the left */
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  /* Stack vertically to fix overlap */
+  align-items: center;
+  /* Center content horizontally */
+  justify-content: center;
+  gap: 3rem;
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: center;
+  /* Center the top section content */
+  min-width: 0;
+}
+
+.card-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* Center buttons */
+}
+
+.card-client:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 14px 14px 0 var(--shadow);
+  border-color: var(--primary);
+  z-index: 10;
+}
+
+.user-picture {
+  overflow: hidden;
+  object-fit: cover;
+  width: 9rem;
+  height: 9rem;
+  border: var(--border-width) solid var(--primary);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: var(--bg);
+  color: var(--text-main);
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  /* Remove auto margin */
+}
+
+.name-client {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+
+
+.name-client span.role {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.name-client span.desc {
+  display: block;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  /* Match spacing of role */
+  line-height: 1.5;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.social-media:before {
+  display: none;
+  /* Remove horizontal line */
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  /* Buttons side-by-side at bottom looks better centered */
+  gap: 2rem;
+  min-width: 200px;
+}
+
+.social-media a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-main);
+  padding: 1rem 2.5rem;
+  /* Slightly wider padding for pill shape */
+  border: var(--border-width) solid var(--glass-border);
+  border-radius: 999px;
+  /* Circle/Pill shape */
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.social-media a:hover {
+  background: var(--primary);
+  color: var(--bg);
+  transform: translateY(4px);
+  /* Push down effect */
+  box-shadow: none;
+  /* Remove shadow to look 'pressed' */
+}
+
+/* Responsive adjustment for Cards */
+@media (max-width: 768px) {
+  .card-client {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .card-left {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Animations for Card Client */
+.card-client::before,
+.card-client::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.6s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+:root[data-theme="dark"] .card-client::before,
+:root[data-theme="dark"] .card-client::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.card-client::before {
+  left: -100%;
+}
+
+.card-client::after {
+  left: 100%;
+}
+
+.card-client:hover::before {
+  animation: swipeRight 1.5s infinite;
+}
+
+.card-client:hover::after {
   animation: swipeLeft 1.5s infinite;
 }
