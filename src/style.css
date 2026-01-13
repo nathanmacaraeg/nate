@@ -621,8 +621,8 @@ footer {
   }
 
   .hero {
-    padding-top: 0;
-    /* Remove top padding on mobile for better centering */
+    padding-top: 8rem;
+    /* Push down to clear iOS address bar */
   }
 }
 
