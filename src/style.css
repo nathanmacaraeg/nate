@@ -229,7 +229,9 @@ nav.scrolled {
   border: var(--border-width) solid var(--glass-border);
   border-radius: 999px;
   /* Circle shape */
-  box-shadow: 4px 4px 0 var(--shadow);
+  box-shadow: 0 4px 0 var(--shadow);
+  /* Vertical 'sticking out' shadow */
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .nav-links {
@@ -251,8 +253,13 @@ nav.scrolled {
 .hero {
   position: relative;
   min-height: 100vh;
+  /* Fallback */
+  min-height: 100dvh;
+  /* Mobile browser support */
   display: flex;
   align-items: center;
+  justify-content: center;
+  /* Center horizontally */
   padding-top: 5rem;
   overflow: hidden;
 }
@@ -612,6 +619,11 @@ footer {
   .hero-btns {
     flex-direction: column;
   }
+
+  .hero {
+    padding-top: 0;
+    /* Remove top padding on mobile for better centering */
+  }
 }
 
 /* Animations */
@@ -712,12 +724,22 @@ footer {
 .timeline-content:hover,
 .project-card:hover,
 .feature-card:hover,
-.skill-category:hover,
-.logo:hover {
-  transform: translate(-6px, -6px);
-  box-shadow: 10px 10px 0 var(--shadow), 15px 15px 20px rgba(0, 0, 0, 0.1);
+.skill-category:hover {
+  transform: translate(-8px, -8px) scale(1.01);
+  /* Lift up and slight scale */
+  box-shadow: 16px 16px 0 var(--shadow), 20px 20px 20px rgba(0, 0, 0, 0.1);
+  /* Deep shadow */
   border-color: var(--primary);
   z-index: 10;
+}
+
+.logo:hover {
+  transform: translateY(4px);
+  /* Pushed straight down */
+  background: var(--surface-hover);
+  box-shadow: none;
+  /* Shadow disappears completely */
+  border-color: var(--primary);
 }
 
 .timeline-content:hover::before,
@@ -809,6 +831,8 @@ footer {
 
 .name-client {
   margin: 0;
+  margin-top: 2.5rem;
+  /* Push down further for alignment */
   font-weight: 700;
   font-size: 2.5rem;
   color: var(--text-main);
