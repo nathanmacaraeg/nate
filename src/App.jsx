@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Navigation from './components/portfolio/Navigation';
 import HeroSection from './components/portfolio/HeroSection';
+import CurrentRoleSection from './components/portfolio/CurrentRoleSection';
 import AboutSection from './components/portfolio/AboutSection';
 import CogsSection from './components/portfolio/CogsSection';
 import IndustriesSection from './components/portfolio/IndustriesSection';
@@ -53,6 +54,7 @@ export default function App() {
       <Navigation />
       <main style={{ paddingTop: '80px' }}>
         <HeroSection />
+        <CurrentRoleSection />
         <AboutSection />
         <CogsSection />
         <IndustriesSection />
