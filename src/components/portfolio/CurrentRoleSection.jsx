@@ -7,7 +7,7 @@ export default function CurrentRoleSection() {
         <div style={{ flex: '1 1 250px' }}>
           <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Current Role</div>
           <h3 style={{ fontSize: '1.5rem', fontWeight: 600, marginTop: '0.5rem', marginBottom: '0.25rem' }}>Social Media Coordinator</h3>
-          <div style={{ color: 'var(--ink)', fontWeight: 500 }}>University of Guelph</div>
+          <div style={{ color: 'var(--ink)', fontWeight: 500 }}>University of Guelph &bull; Co-op</div>
         </div>
         <div style={{ flex: '2 1 400px' }}>
           <p className="text-sub" style={{ margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>
