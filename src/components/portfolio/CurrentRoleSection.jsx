@@ -11,7 +11,7 @@ export default function CurrentRoleSection() {
         </div>
         <div style={{ flex: '2 1 400px' }}>
           <p className="text-sub" style={{ margin: 0, fontSize: '1.1rem', lineHeight: '1.6' }}>
-            Currently working on content, copywriting, and collaborating with the Communications and Marketing team.
+            Creating content and copywriting for multiple social platforms in collaboration with the Communications and Marketing team.
           </p>
         </div>
       </div>
