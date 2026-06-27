@@ -6,6 +6,7 @@ import AboutSection from './components/portfolio/AboutSection';
 import CogsSection from './components/portfolio/CogsSection';
 import IndustriesSection from './components/portfolio/IndustriesSection';
 import SkillSchematic from './components/portfolio/SkillSchematic';
+import CertificationsSection from './components/portfolio/CertificationsSection';
 import WorkLedger from './components/portfolio/WorkLedger';
 import ContactFooter from './components/portfolio/ContactFooter';
 import InteractiveBackground from './components/portfolio/InteractiveBackground';
@@ -59,6 +60,7 @@ export default function App() {
         <CogsSection />
         <IndustriesSection />
         <SkillSchematic />
+        <CertificationsSection />
         <WorkLedger />
         <ContactFooter />
       </main>
